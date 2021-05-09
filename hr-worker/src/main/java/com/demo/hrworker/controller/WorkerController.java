@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("workers")
 public class WorkerController {
 
-    private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
-
-    @Autowired private Environment environment;
     @Autowired private WorkerService service;
     @Autowired private WorkerParser parser;
 
@@ -30,9 +27,6 @@ public class WorkerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable String id){
-
-        logger.info("PORT = " + environment.getProperty("local.server.port"));
-
         return new ResponseEntity<>(parser.toResponse(service.workerById(id)), HttpStatus.OK);
     }
 }
