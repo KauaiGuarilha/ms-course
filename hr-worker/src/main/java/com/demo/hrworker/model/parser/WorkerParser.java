@@ -5,14 +5,13 @@ import com.demo.hrworker.model.entity.Worker;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Component
 public class WorkerParser {
 
     public Worker toWorker(WorkerDTO dto){
         return Worker.builder()
-                .id(Objects.isNull(dto.getId()) ? null : UUID.fromString(dto.getId()))
+                .id(Objects.isNull(dto.getId()) ? null : Long.valueOf(dto.getId()))
                 .name(dto.getName())
                 .dailyIncome(dto.getDailyIncome())
                 .build();

@@ -17,7 +17,7 @@ public class WorkerService {
 
     public Worker workerById(String id){
         verifyWorkerExists(id);
-        Optional<Worker> worker = repository.findById(UUID.fromString(id));
+        Optional<Worker> worker = repository.findById(Long.valueOf(id));
         return worker.get();
     }
 
@@ -26,7 +26,7 @@ public class WorkerService {
     }
 
     private void verifyWorkerExists(String id) {
-        if (repository.findById(UUID.fromString(id)) == null)
-            throw new ResourceNotFoundException("Worker not found for UUID: " + id);
+        if (repository.findById(Long.valueOf(id)) == null)
+            throw new ResourceNotFoundException("Worker not found for id: " + id);
     }
 }

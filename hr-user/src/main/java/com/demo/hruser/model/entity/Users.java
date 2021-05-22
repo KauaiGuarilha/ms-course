@@ -22,11 +22,8 @@ import java.util.UUID;
 public class Users {
 
     @Id
-    @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
-    @GeneratedValue(generator = "uuid-gen")
-    @Type(type = "org.hibernate.type.PostgresUUIDType")
-    @Column(columnDefinition = "uuid")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column private String name;
     @Column private String email;

@@ -19,11 +19,9 @@ import java.util.UUID;
 public class Role {
 
     @Id
-    @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
-    @GeneratedValue(generator = "uuid-gen")
-    @Type(type = "org.hibernate.type.PostgresUUIDType")
-    @Column(columnDefinition = "uuid")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column private String roleName;
+    @Column(name = "role_name")
+    private String roleName;
 }
