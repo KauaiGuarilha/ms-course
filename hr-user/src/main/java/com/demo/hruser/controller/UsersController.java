@@ -1,5 +1,6 @@
 package com.demo.hruser.controller;
 
+import com.demo.hruser.model.entity.Users;
 import com.demo.hruser.model.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class UsersController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<?> findByEmail(@RequestParam String email){
+    public ResponseEntity<Users> findByEmail(@RequestParam String email){
         return new ResponseEntity<>(service.usersByEmail(email), HttpStatus.OK);
     }
 }
