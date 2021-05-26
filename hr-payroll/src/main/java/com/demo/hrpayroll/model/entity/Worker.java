@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Worker {
 
-    private UUID id;
+    private Long id;
     private String name;
     private Double dailyIncome;
 }
